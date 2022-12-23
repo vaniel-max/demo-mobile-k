@@ -3,13 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/drawable/ic_baseline_exposure_plus_1_24.xml" value="0.1425" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/activity_add.xml" value="0.2" />
         <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/content_main.xml" value="0.2" />
-        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/fragment_formulario.xml" value="0.1" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/dialog_insert.xml" value="0.33" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/fragment_formulario.xml" value="0.25" />
         <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/fragment_gallery.xml" value="0.1" />
         <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/fragment_mapas.xml" value="0.1859375" />
-        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/nav_main2.xml" value="0.11851851851851852" />
-        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/menu/nav_main2.xml" value="0.2" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/my_row_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/nav_header_main.xml" value="0.2" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/layout/nav_main2.xml" value="0.25" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/menu/button_bar.xml" value="0.22" />
+        <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/menu/nav_main2.xml" value="0.22" />
         <entry key="..\:/Users/Vaniel/AndroidStudioProjects/DemoMobilv4/app/src/main/res/menu/nav_main2_drawer.xml" value="0.19282051282051282" />
       </map>
     </option>
