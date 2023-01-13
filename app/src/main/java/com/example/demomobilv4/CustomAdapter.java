@@ -19,7 +19,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     ArrayList<ResultsDB> listResultsDB;
 
-    public CustomAdapter(ArrayList<ResultsDB> listResultsDB) {
+    public CustomAdapter(ArrayList<ResultsDB> listResultsDB, Context context) {
+
+        this.context = context;
         this.listResultsDB = listResultsDB;
     }
 
@@ -28,7 +30,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_row_recycler, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.my_row_recycler, parent, false);
         return new MyViewHolder(view);
     }
 

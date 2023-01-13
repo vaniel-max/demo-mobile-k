@@ -12,6 +12,10 @@ public class ResultsDB {
         this.descripcionResult = descripcionResult;
     }
 
+    public ResultsDB(){
+
+    }
+
     public String getCodigoResult() {
         return codigoResult;
     }
