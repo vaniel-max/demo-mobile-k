@@ -16,15 +16,20 @@ import android.widget.Toast;
 import com.example.demomobilv4.dto.RespuestaLogin;
 import com.example.demomobilv4.dto.User;
 import com.example.demomobilv4.service.NewtonService;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class
 MainActivity extends AppCompatActivity {
     private Button buttonLog;
+    private TextInputEditText user;
+    private TextInputEditText password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        user=(TextInputEditText)findViewById(R.id.tiUsuarioLO);
+        password=(TextInputEditText)findViewById(R.id.tiPassLO);
         buttonLog = (Button) findViewById(R.id.buttonLogLO);
         buttonLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,32 +38,45 @@ MainActivity extends AppCompatActivity {
                         .baseUrl("http://desa03.konecta.com.py:8187/smppadmin/api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
-                User userParams= new User();
-                //aca hay que setear lo que viene de los inputs que carga el usuario
-                userParams.setUsername("admin");
-                userParams.setPassword("12345");
-                NewtonService service = retrofit.create(NewtonService.class);
-                Call<RespuestaLogin> response=service.login(userParams);
-                //llamada asincrona
-                response.enqueue(new Callback<RespuestaLogin>() {
-                    @Override
-                    public void onResponse(Call<RespuestaLogin> call, Response<RespuestaLogin> response) {
-                        //camino feliz, status 200
-                        RespuestaLogin contenidoRespuesta=response.body();
-                        Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
-                        openNav();
+                if (user.getText().toString().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this, "Favor ingrese su usuario", Toast.LENGTH_LONG).show();
+
+                }
+                else if (password.getText().toString().isEmpty())
+                {
+                    Toast.makeText(MainActivity.this, "Favor ingrese su password", Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    User userParams= new User();
+                    //se setea lo que viene del input de pantalla
+                    userParams.setUsername(user.getText().toString());
+                    userParams.setPassword(password.getText().toString());
+                    NewtonService service = retrofit.create(NewtonService.class);
+                    Call<RespuestaLogin> response=service.login(userParams);
+                    //llamada asincrona
+                    response.enqueue(new Callback<RespuestaLogin>() {
+                        @Override
+                        public void onResponse(Call<RespuestaLogin> call, Response<RespuestaLogin> response) {
+                            //camino feliz, status 200
+                            RespuestaLogin contenidoRespuesta=response.body();
+                            Toast.makeText(MainActivity.this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+                            openNav();
 
 
 
-                    }
+                        }
 
-                    @Override
-                    public void onFailure(Call<RespuestaLogin> call, Throwable t) {
-                        //camino fallido, erro 500, 400, etc
-                        Toast.makeText(MainActivity.this, "Inicio de sesión fallido, favor verifique sus credenciales", Toast.LENGTH_LONG).show();
+                        @Override
+                        public void onFailure(Call<RespuestaLogin> call, Throwable t) {
+                            //camino fallido, erro 500, 400, etc
+                            Toast.makeText(MainActivity.this, "Inicio de sesión fallido, favor verifique sus credenciales", Toast.LENGTH_LONG).show();
 
-                    }
-                });
+                        }
+                    });
+                }
+
 
             }
         });
