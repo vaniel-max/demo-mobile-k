@@ -17,19 +17,20 @@ import com.example.demomobilv4.dto.RespuestaLogin;
 import com.example.demomobilv4.dto.User;
 import com.example.demomobilv4.service.NewtonService;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 public class
 MainActivity extends AppCompatActivity {
     private Button buttonLog;
-    private TextInputEditText user;
-    private TextInputEditText password;
+    private TextInputLayout user;
+    private TextInputLayout password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        user=(TextInputEditText)findViewById(R.id.tiUsuarioLO);
-        password=(TextInputEditText)findViewById(R.id.tiPassLO);
+        user=(TextInputLayout)findViewById(R.id.tiUsuarioLO);
+        password=(TextInputLayout)findViewById(R.id.tiPassLO);
         buttonLog = (Button) findViewById(R.id.buttonLogLO);
         buttonLog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,12 +39,12 @@ MainActivity extends AppCompatActivity {
                         .baseUrl("http://desa03.konecta.com.py:8187/smppadmin/api/")
                         .addConverterFactory(GsonConverterFactory.create())
                         .build();
-                if (user.getText().toString().isEmpty())
+                if (user.getEditText().getText().toString().isEmpty())
                 {
                     Toast.makeText(MainActivity.this, "Favor ingrese su usuario", Toast.LENGTH_LONG).show();
 
                 }
-                else if (password.getText().toString().isEmpty())
+                else if (password.getEditText().getText().toString().isEmpty())
                 {
                     Toast.makeText(MainActivity.this, "Favor ingrese su password", Toast.LENGTH_LONG).show();
 
@@ -51,8 +52,8 @@ MainActivity extends AppCompatActivity {
                 else {
                     User userParams= new User();
                     //se setea lo que viene del input de pantalla
-                    userParams.setUsername(user.getText().toString());
-                    userParams.setPassword(password.getText().toString());
+                    userParams.setUsername(user.getEditText().getText().toString());
+                    userParams.setPassword(password.getEditText().getText().toString());
                     NewtonService service = retrofit.create(NewtonService.class);
                     Call<RespuestaLogin> response=service.login(userParams);
                     //llamada asincrona
